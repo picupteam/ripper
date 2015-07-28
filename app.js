@@ -1,4 +1,3 @@
-var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -9,7 +8,21 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var port = 3500;
 
+//Tracker Server
 var tracker = require('./server');
+
+//Express Web Server
+var express = require('express');
+
+//DB Connector
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/todoApp', function(err) {
+    if(err) {
+        console.log('connection error', err);
+    } else {
+        console.log('connection successful');
+    }
+});
 
 // Initialize Tracker Server
 /*var Server = require('bittorrent-tracker').Server;

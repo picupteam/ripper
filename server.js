@@ -66,6 +66,7 @@ server.on('start', function(addr) {
 });
 
 server.on('complete', function(addr) {
+	console.log('got complete message from ' + addr);	
 });
 server.on('update', function(addr) {
 	console.log('got update message from ' + addr);
